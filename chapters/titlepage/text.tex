@@ -1,0 +1,26 @@
+% !TeX root = ../../athedral-bazaar.tex
+\newcommand*{\rotrt}[1]{\rotatebox{90}{$#1$}}
+\newcommand*{\rotlft}[1]{\rotatebox{-90}{$#1$}}
+\newcommand*{\topb}[1]{%
+  \resizebox*{\unitlength}{\baselineskip}{\rotrt{#1}}}
+\newcommand*{\botb}[1]{%
+  \resizebox*{\unitlength}{\baselineskip}{\rotlft{#1}}}
+\begin{titlingpage}
+
+  \begin{center}
+    \def\CP{\textit{\Huge \bfseries The Cathedral and the Bazaar}}
+    \settowidth{\unitlength}{\CP}
+    {\color{LightGray}\topb{?}} \\[\baselineskip]
+    \textcolor{Black}{\CP} \\[\baselineskip]
+    {\color{Gray}\Huge \bfseries มหาวิหารกับตลาดสด} \\
+    {\color{LightGray}\botb{?}}
+  \end{center}
+  \vfill
+  \begin{center}
+    {\LARGE\textbf{Eric Steven Raymond}}\\
+    {\vspace*{2mm}\large \href{mailto:esr@thyrsus.com}{esr@thyrsus.com}}
+    \vfill
+    Thyrsus Enterprises \\[\baselineskip]
+    {2008-10-03}
+  \end{center}
+\end{titlingpage}

@@ -1,0 +1,120 @@
+\documentclass[10pt,oneside]{memoir}
+\usepackage{fonts-tlwg-fontspec}
+\usepackage[pdfusetitle,unicode,hidelinks,colorlinks=true,linkcolor=blue,urlcolor=teal]{hyperref}
+\usepackage{polyglossia}
+\usepackage[svgnames]{xcolor}
+\usepackage{tikz}
+\usepackage{chngpage}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{fancyhdr}
+\usepackage[many]{tcolorbox}
+
+
+\newfontfamily\thaifont{Laksaman}
+\newfontfamily\thaifontsf{Laksaman}
+\newfontfamily\thaifonttt{TlwgTypist}
+
+\setdefaultlanguage{thai}
+\setotherlanguages{english}
+\XeTeXlinebreaklocale "th"
+\XeTeXlinebreakskip = 0pt plus 1pt \relax
+
+\parskip = \baselineskip
+
+\linespread{1.25}
+
+
+\setlength{\headheight}{16.5pt}
+
+\renewcommand*{\notesname}{เชิงอรรถ}
+
+% Chapter style
+% http://tug.ctan.org/info/latex-samples/MemoirChapStyles/MemoirChapStyles.pdf
+\newif\ifNoChapNumber
+\newcommand\Vlines{%
+\def\VL{\rule[-2cm]{1pt}{4cm}\hspace{1mm}\relax}
+\VL\VL\VL\VL\VL\VL\VL}
+\makeatletter
+\setlength\midchapskip{0pt}
+\makechapterstyle{VZ43}{
+\renewcommand\chapternamenum{}
+\renewcommand\printchaptername{}
+\renewcommand\printchapternum{}
+\renewcommand\chapnumfont{\Huge\bfseries\centering}
+\renewcommand\chaptitlefont{\Huge\bfseries\raggedright}
+\renewcommand\printchaptertitle[1]{%
+\Vlines\hspace*{-2em}%
+\begin{tabular}{@{}p{1cm} p{\textwidth-3cm}}%
+\ifNoChapNumber\relax\else%
+\colorbox{black}{\color{white}%
+\makebox[.7cm]{\chapnumfont\strut \thechapter}}
+\fi
+& \chaptitlefont ##1
+\end{tabular}
+\NoChapNumberfalse
+}
+\renewcommand\printchapternonum{\NoChapNumbertrue}
+}
+\makeatother
+\chapterstyle{VZ43}
+%%
+
+% https://tex.stackexchange.com/questions/277777/block-quote-with-big-quotation-marks-in-margin
+
+\newtcolorbox{fancyquotes}{%
+    enhanced jigsaw, 
+    breakable, 
+    frame hidden,
+    left=0cm,
+    right=0cm, 
+    overlay={%
+        \node [scale=6,
+            text=black,
+            inner sep=0pt,] at ([xshift=-.5cm,yshift=-1cm]frame.north west){``}; 
+        \node [scale=6,
+            text=black,
+            inner sep=0pt,] at ([xshift=.5cm]frame.south east){''};  
+            },
+                parbox=true,
+}
+
+
+\title{มหาวิหารกับตลาดสด}
+\author{Eric Steven Raymond \\ Thyrsus Enterprises \\ esr@thyrsus.com}
+\date{}
+
+\notepageref
+\makepagenote
+
+\begin{document}
+\frontmatter
+\include{chapters/titlepage/text}
+\include{chapters/revisions/text}
+\include{chapters/abstract/text}
+
+\pagestyle{fancy}
+
+\tableofcontents
+
+\mainmatter
+\include{chapters/1/text}
+\include{chapters/2/text}
+\include{chapters/3/text}
+\include{chapters/4/text}
+\include{chapters/5/text}
+\include{chapters/6/text}
+\include{chapters/7/text}
+\include{chapters/8/text}
+\include{chapters/9/text}
+\include{chapters/10/text}
+\include{chapters/11/text}
+\include{chapters/12/text}
+\include{chapters/13/text}
+
+\backmatter
+\include{chapters/notes/text}
+\include{chapters/bibliography/text}
+\include{chapters/acknowledgements/text}
+
+\end{document}

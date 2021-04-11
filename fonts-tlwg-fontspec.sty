@@ -1,0 +1,35 @@
+\usepackage[no-math]{fontspec}
+
+\defaultfontfeatures{
+  Extension       = .otf ,
+  Mapping       = tex-text,
+  Script          = Default
+  }
+
+% Font families with regular, oblique, bold, and bold-oblique.
+\defaultfontfeatures[Garuda,Loma,Purisa,Sawasdee,TlwgMono,TlwgTypewriter,%
+TlwgTypist,TlwgTypo,Umpush,Waree]{
+ItalicFont      = *-Oblique ,
+BoldFont        = *-Bold ,
+BoldItalicFont  = *-BoldOblique ,
+}
+
+% TlwgMono don't has Script Default
+\defaultfontfeatures+[TlwgMono]{Script=Thai}
+
+
+% Font families with regular, italic, bold, and bold-italic.
+\defaultfontfeatures[Laksaman]{
+ItalicFont      = *-Italic ,
+BoldFont        = *-Bold ,
+BoldItalicFont  = *-BoldItalic ,
+}
+% Font families with regular, italic, oblique, bold, 
+% bold-italic, and bold-oblique.
+\defaultfontfeatures[Kinnari,Norasi]{
+ItalicFont      = *-Italic ,
+SlantedFont     = *-Oblique ,
+BoldFont        = *-Bold ,
+BoldItalicFont  = *-BoldItalic ,
+BoldSlantedFont = *-BoldOblique ,
+}
